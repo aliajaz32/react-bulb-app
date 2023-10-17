@@ -1,23 +1,19 @@
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import bulbon from './bulbon.png';
+import bulboff from './bulboff.png';
 
 function App() {
+  const [user,setUser] = useState(true);
+  function changeState(){
+    setUser(!user)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <img width='150' src={ user ? bulbon : bulboff  } alt="" /> <br />
+     
+      <button onClick={changeState}>   {user ? 'turn off' : 'turn on'   }   </button>
     </div>
   );
 }
